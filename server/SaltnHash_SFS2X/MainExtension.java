@@ -1,4 +1,4 @@
-package riley.helloworldSFSX;
+package riley.SaltnHash_SFS2X;
 
 import com.smartfoxserver.v2.extensions.SFSExtension;
 import com.smartfoxserver.v2.components.login.*;
@@ -7,7 +7,7 @@ import com.smartfoxserver.v2.db.SFSDBManager;
 import java.util.Arrays;
 
 
-public class MyExtension extends SFSExtension {
+public class MainExtension extends SFSExtension {
 	
 	private LoginAssistantComponent lac;
 	public SFSDBManager DB;
@@ -17,7 +17,7 @@ public class MyExtension extends SFSExtension {
 		
 		lac = new LoginAssistantComponent(this);
 		
-		this.addRequestHandler("MessageSent", MyExtensionHandler.class);
+		this.addRequestHandler("MessageSent", MessageSentHandler.class);
 		this.addRequestHandler("MessageRequest", MessageRequestHandler.class);
         
         lac.getConfig().loginTable = "users";

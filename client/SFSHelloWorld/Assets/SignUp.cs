@@ -20,13 +20,12 @@ public class SignUp : MonoBehaviour
 
     void Start()
     {
-        
+        sfs = new SmartFox();
     }
 
     public void OnSignUpButtonClick()
     {
         //initialize SmartFox and EventListeners
-        sfs = new SmartFox();
         sfs.AddEventListener(SFSEvent.CONNECTION, OnConnection);
         sfs.AddEventListener(SFSEvent.LOGIN, OnLogin);
         sfs.AddEventListener(SFSEvent.EXTENSION_RESPONSE, OnExtensionResponse);
@@ -64,21 +63,20 @@ public class SignUp : MonoBehaviour
     private void OnLoginError(BaseEvent e)
     {
         sfs.RemoveAllEventListeners();
-        Log.text = "login error";
+        sfs.Disconnect();
+        Log.text = "Login Error";
     }
 
     private void OnExtensionResponse(BaseEvent e)
     {
         string cmd = (string)e.Params["cmd"];
         ISFSObject ResponseParams = (ISFSObject)e.Params["params"];
-        Log.text = "recieved response from sign up request";
 
         if (cmd == "$SignUp.Submit")
         {
             if (ResponseParams.GetBool("success"))
             {
                 Log.text = "Successfully created account";
-                //sfs.Send(new LoginRequest(UserIn.text, PasswordIn.text, "HelloWorld"));
             }
             else
             {
@@ -86,10 +84,13 @@ public class SignUp : MonoBehaviour
             }
         }
         sfs.RemoveAllEventListeners();
+        sfs.Disconnect();
     }
 
     void OnDestroy()
     {
+        sfs.RemoveAllEventListeners();
+        sfs.Disconnect();
     }
 
     void Update()

@@ -1,4 +1,4 @@
-package riley.helloworldSFSX;
+package riley.SaltnHash_SFS2X;
 
 import com.smartfoxserver.v2.entities.User;
 import com.smartfoxserver.v2.entities.data.*;
@@ -8,13 +8,13 @@ import java.sql.SQLException;
 
 import com.smartfoxserver.v2.db.SFSDBManager;
 
-public class MyExtensionHandler extends BaseClientRequestHandler {
+public class MessageSentHandler extends BaseClientRequestHandler {
 
 	@Override
 	public void handleClientRequest(User user, ISFSObject params) {
 		String message = params.getUtfString("message");
 		String sql = "UPDATE users SET message = ? WHERE username = ?";
-		SFSDBManager DB = ((MyExtension)getParentExtension()).DB;
+		SFSDBManager DB = ((MainExtension)getParentExtension()).DB;
 		ISFSObject paramsOut = new SFSObject();
 		try {
 			DB.executeUpdate(sql, new Object[]{message, user.getName()});

@@ -1,4 +1,4 @@
-package riley.helloworldSFSX;
+package riley.SaltnHash_SFS2X;
 
 import com.smartfoxserver.v2.components.login.ILoginAssistantPlugin;
 import com.smartfoxserver.v2.util.MD5;

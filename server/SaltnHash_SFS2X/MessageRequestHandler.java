@@ -1,4 +1,4 @@
-package riley.helloworldSFSX;
+package riley.SaltnHash_SFS2X;
 
 import java.sql.SQLException;
 
@@ -12,7 +12,7 @@ public class MessageRequestHandler extends BaseClientRequestHandler {
 	@Override
 	public void handleClientRequest(User user, ISFSObject params) {
 		String sql = "SELECT message FROM users WHERE username = ?";
-		SFSDBManager DB = ((MyExtension)getParentExtension()).DB;
+		SFSDBManager DB = ((MainExtension)getParentExtension()).DB;
 		ISFSObject paramsOut = new SFSObject();
 		try {
 			ISFSArray result = DB.executeQuery(sql, new Object[]{user.getName()});
