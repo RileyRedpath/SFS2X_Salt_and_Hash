@@ -10,7 +10,7 @@ A simple application to outline how to salt and hash your user's passwords with 
 
  In your IDE:
 
-   - Create 2 new Java projects. Import the source files in the server/SignUpExtension folder to one project and import the source files in the server/helloworldSFS2X folder to the other.
+   - Create 2 new Java projects. Import the source files in the server/SignUpExtension folder to one project and import the source files in the server/SaltnHash_SFS2X folder to the other.
     
    - Import the sfs2x and sfs2x-core jar files as external libraries.
     
@@ -18,9 +18,9 @@ A simple application to outline how to salt and hash your user's passwords with 
     
 In SFS2X Admin tool:    
 
-  - Create zones named "HelloWorld" and "SignUpZone".
+  - Create zones named "MainZone" and "SignUpZone".
   
-  - Disable custom login on SignUpZone and enable it on HelloWorld.
+  - Disable custom login on SignUpZone and enable it on MainZone.
 
   In your DB server console:
 
@@ -34,7 +34,7 @@ In Unity:
   
   - Import the project in client/SFSHelloWorld into Unity.
     
-  - If SmartFoxServer is configured to run on a different port than the defualt (9933), change the connecting port in both HelloWorld.cs and SignUp.cs to the port SmartFoxServer runs on.
+  - If SmartFoxServer is configured to run on a different port than the defualt (9933), change the connecting port in both MainScript.cs and SignUp.cs to the port SmartFoxServer runs on.
     
   - When both the DB server and SmartFoxServer are running, run the project from the editor or in a built exe.
       
